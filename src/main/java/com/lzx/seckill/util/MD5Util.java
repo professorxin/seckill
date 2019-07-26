@@ -46,4 +46,8 @@ public class MD5Util {
         String dbPassword = formPassToDbPass(formPassword, saltDb);
         return dbPassword;
     }
+
+    public static void main(String[] args) {
+        System.out.println(MD5Util.inputPassToDbPass("123456", "1a2b3c4d"));
+    }
 }
