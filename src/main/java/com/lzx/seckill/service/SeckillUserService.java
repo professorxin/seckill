@@ -50,7 +50,8 @@ public class SeckillUserService {
         if (!calcPassWord.equals(dbPassword)) {
             throw new GlobleException(CodeMsg.PASSWORD_ERROR);
         }
-        addCookie(response, user);
+        String token = UUIDUtil.uuid();
+        addCookie(response, token, user);
 
         return true;
     }
@@ -66,14 +67,13 @@ public class SeckillUserService {
             return null;
         }
         SeckillUser seckillUser = redisService.get(SeckillUserKeyPrefix.token, token, SeckillUser.class);
-        if(seckillUser != null){
-            addCookie(response, seckillUser);
+        if (seckillUser != null) {
+            addCookie(response, token, seckillUser);
         }
         return seckillUser;
     }
 
-    private void addCookie(HttpServletResponse response, SeckillUser user){
-        String token = UUIDUtil.uuid();
+    private void addCookie(HttpServletResponse response, String token, SeckillUser user) {
         redisService.set(SeckillUserKeyPrefix.token, token, user);
         Cookie cookie = new Cookie(COOKIE_NAME, token);
         cookie.setPath("/");
