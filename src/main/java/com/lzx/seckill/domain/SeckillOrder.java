@@ -40,4 +40,14 @@ public class SeckillOrder {
     public void setGoodsId(Long goodsId) {
         this.goodsId = goodsId;
     }
+
+    @Override
+    public String toString() {
+        return "SeckillOrder{" +
+                "id=" + id +
+                ", userId=" + userId +
+                ", orderId=" + orderId +
+                ", goodsId=" + goodsId +
+                '}';
+    }
 }
