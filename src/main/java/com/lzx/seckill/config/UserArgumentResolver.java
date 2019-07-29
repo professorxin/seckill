@@ -28,6 +28,7 @@ public class UserArgumentResolver implements HandlerMethodArgumentResolver {
 
     /**
      * 当请求参数中含有SeckillUser时，Controller中该对象是由下面的resolveArgument方法获得
+     *
      * @param methodParameter
      * @return
      */
@@ -39,6 +40,7 @@ public class UserArgumentResolver implements HandlerMethodArgumentResolver {
 
     /**
      * 解析request和response，返回SeckillUser对象
+     *
      * @param methodParameter
      * @param modelAndViewContainer
      * @param nativeWebRequest
@@ -57,6 +59,7 @@ public class UserArgumentResolver implements HandlerMethodArgumentResolver {
 
         String paramToken = request.getParameter(SeckillUserService.COOKIE_NAME);
         String cookieToken = getCookieValue(request, SeckillUserService.COOKIE_NAME);
+        //System.out.println(paramToken+"--------------"+cookieToken);
         if (StringUtils.isEmpty(cookieToken) && StringUtils.isEmpty(paramToken)) {
             return null;
         }
@@ -67,12 +70,16 @@ public class UserArgumentResolver implements HandlerMethodArgumentResolver {
 
     /**
      * 根据cookie名获取相应的cookie值
+     *
      * @param request
      * @param cookieName
      * @return
      */
     private String getCookieValue(HttpServletRequest request, String cookieName) {
         Cookie[] cookies = request.getCookies();
+        if (cookies == null || cookies.length <= 0) {
+            return null;
+        }
         for (Cookie cookie : cookies) {
             if (cookieName.equals(cookie.getName())) {
                 return cookie.getValue();

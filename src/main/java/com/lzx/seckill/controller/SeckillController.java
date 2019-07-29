@@ -32,8 +32,17 @@ public class SeckillController {
     @Autowired
     private SeckillService seckillService;
 
-    @RequestMapping("do_seckill")
+
+    /**
+     * 未优化，并发1000，qps为833
+     * @param model
+     * @param user
+     * @param goodsId
+     * @return
+     */
+    @RequestMapping("/do_seckill")
     public String doSeckill(Model model, SeckillUser user, @RequestParam("goodsId") Long goodsId) {
+        //System.out.println(user);
         if (user == null) {
             return "login";
         }
@@ -47,13 +56,14 @@ public class SeckillController {
         }
         //判断是否重复下单
         SeckillOrder seckillOrder = orderService.getSeckillOrderByUserIdAndGoodsId(user.getId(), goodsId);
-        log.info("判断是否重复下单" + seckillOrder.toString());
+        //log.info("判断是否重复下单" + seckillOrder.toString());
         if (seckillOrder != null) {
             model.addAttribute("errmsg", CodeMsg.REPEATE_SECKILL.getMsg());
             return "seckill_fail";
         }
         //减库存，下订单，写入秒杀订单表
         OrderInfo orderInfo = seckillService.seckill(user, goods);
+        //log.info(orderInfo.toString());
         model.addAttribute("orderInfo", orderInfo);
         model.addAttribute("goods", goods);
         return "order_detail";
