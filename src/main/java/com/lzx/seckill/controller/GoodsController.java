@@ -3,8 +3,10 @@ package com.lzx.seckill.controller;
 import com.lzx.seckill.domain.SeckillUser;
 import com.lzx.seckill.redis.GoodsKeyPrefix;
 import com.lzx.seckill.redis.RedisService;
+import com.lzx.seckill.result.Result;
 import com.lzx.seckill.service.GoodsService;
 import com.lzx.seckill.service.SeckillUserService;
+import com.lzx.seckill.vo.GoodDetailVo;
 import com.lzx.seckill.vo.GoodsVo;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -115,5 +117,37 @@ public class GoodsController {
         }
         return html;
         //return "goods_detail";
+    }
+
+    @RequestMapping(value = "/to_detail_static/{goodsId}")
+    @ResponseBody
+    public Result<GoodDetailVo> toDetailStatic(HttpServletRequest request, HttpServletResponse response, Model model,
+                                               SeckillUser seckillUser, @PathVariable("goodsId") Long goodsId) {
+
+        GoodsVo goods = goodsService.getGoodsVoById(goodsId);
+        Long startAt = goods.getStartDate().getTime();
+        Long endAt = goods.getEndDate().getTime();
+        Long currentAt = System.currentTimeMillis();
+
+        int seckillStatus = 0;
+        int remainSeconds = 0;
+
+        if (currentAt < startAt) {//秒杀未开始
+            seckillStatus = 0;
+            remainSeconds = (int) ((startAt - currentAt) / 1000);
+        } else if (currentAt > endAt) {//秒杀已结束
+            seckillStatus = 2;
+            remainSeconds = -1;
+        } else {//秒杀进行中
+            seckillStatus = 1;
+            remainSeconds = 0;
+        }
+        GoodDetailVo goodDetailVo = new GoodDetailVo();
+        goodDetailVo.setGoods(goods);
+        goodDetailVo.setRemainSeconds(remainSeconds);
+        goodDetailVo.setSeckillStatus(seckillStatus);
+        goodDetailVo.setUser(seckillUser);
+
+        return Result.success(goodDetailVo);
     }
 }

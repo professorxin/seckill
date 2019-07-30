@@ -87,7 +87,7 @@
         var goodsId = $("#goodsId").val();
         g_showLoading();
         $.ajax({
-            url: "/miaosha/path",
+            url: "/seckill/path",
             type: "GET",
             data: {
                 goodsId: goodsId,
@@ -110,7 +110,7 @@
     /*真正做秒杀的接口, path为服务端返回的秒杀接口地址*/
     function doMiaosha(path) {
         $.ajax({
-            url: "/miaosha/" + path + "/do_miaosha_static",
+            url: "/seckill/" + path + "/do_seckill_static",
             type: "POST",
             data: {
                 goodsId: $("#goodsId").val()
@@ -133,7 +133,7 @@
     function getMiaoshaResult(goodsId) {
         g_showLoading();// 加载中
         $.ajax({
-            url: "/miaosha/result",
+            url: "/seckill/result",
             type: "GET",
             data: {
                 goodsId: $("#goodsId").val(),

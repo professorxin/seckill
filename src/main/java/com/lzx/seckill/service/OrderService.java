@@ -4,6 +4,8 @@ import com.lzx.seckill.dao.OrderDao;
 import com.lzx.seckill.domain.OrderInfo;
 import com.lzx.seckill.domain.SeckillOrder;
 import com.lzx.seckill.domain.SeckillUser;
+import com.lzx.seckill.redis.OrderKeyPrefix;
+import com.lzx.seckill.redis.RedisService;
 import com.lzx.seckill.vo.GoodsVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,8 +19,14 @@ public class OrderService {
     @Autowired
     private OrderDao orderDao;
 
+    @Autowired
+    private RedisService redisService;
+
     public SeckillOrder getSeckillOrderByUserIdAndGoodsId(Long id, Long goodsId) {
-        return orderDao.getSeckillOrderByUserIdAndGoodsId(id, goodsId);
+        SeckillOrder seckillOrder = redisService.get(OrderKeyPrefix.getSeckillOrderByUidGid, "" + id + "_" + goodsId,
+                SeckillOrder.class);
+        return  seckillOrder;
+        //return orderDao.getSeckillOrderByUserIdAndGoodsId(id, goodsId);
     }
 
 
@@ -46,6 +54,12 @@ public class OrderService {
         //秒杀订单信息插入seckill_order表
         orderDao.insertSeckillOrder(seckillOrder);
 
+        redisService.set(OrderKeyPrefix.getSeckillOrderByUidGid,
+                "" + user.getId() + "_" + goods.getId(), seckillOrder);
         return orderInfo;
+    }
+
+    public OrderInfo getOrderById(long orderId) {
+        return orderDao.getOrderById(orderId);
     }
 }
