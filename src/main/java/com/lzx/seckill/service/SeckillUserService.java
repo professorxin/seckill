@@ -56,9 +56,46 @@ public class SeckillUserService {
         return token;
     }
 
+    /**
+     * 根据id查询秒杀用户信息
+     * 对象级缓存
+     *
+     * @param id
+     * @return
+     */
     public SeckillUser getById(Long id) {
-        SeckillUser seckillUser = seckillUserDao.getById(id);
+        //从redis缓存中获取用户数据缓存
+        SeckillUser seckillUser = redisService.get(SeckillUserKeyPrefix.getSeckillUserById,
+                "" + id, SeckillUser.class);
+        if (seckillUser != null) {
+            return seckillUser;
+        }
+        //缓存中没有数据就从数据库中查，并放入缓存
+        seckillUser = seckillUserDao.getById(id);
+        if (seckillUser != null) {
+            redisService.set(SeckillUserKeyPrefix.getSeckillUserById, "" + id, seckillUser);
+        }
         return seckillUser;
+    }
+
+
+    public boolean updatePassword(String token, long id, String updatePassword) {
+        //调用service层根据id查询用户数据，可能走缓存或者数据库。直接调用dao层的话就直接走数据库了
+        SeckillUser seckillUser = getById(id);
+        if (seckillUser == null) {
+            throw new GlobleException(CodeMsg.MOBILE_NOT_EXIST);
+        }
+        //用户数据存在，更新数据
+        SeckillUser updateUser = new SeckillUser();
+        updateUser.setId(id);
+        updateUser.setPassword(MD5Util.inputPassToDbPass(updatePassword, seckillUser.getSalt()));
+        seckillUserDao.updatePassword(updateUser);
+        //删除缓存中的旧数据
+        redisService.delete(SeckillUserKeyPrefix.getSeckillUserById, "" + id);
+        //根据token查找用户信息的旧数据不能直接删除，直接删除会导致程序无法获取用户信息了，改为重新设置值
+        seckillUser.setPassword(updateUser.getPassword());
+        redisService.set(SeckillUserKeyPrefix.token, token, seckillUser);
+        return true;
     }
 
     public SeckillUser getByToken(HttpServletResponse response, String token) {
