@@ -2,19 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="20d1c88c-f1bf-476e-96b9-eecec5810ba8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lzx/seckill/controller/OrderController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lzx/seckill/redis/OrderKeyPrefix.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lzx/seckill/vo/GoodDetailVo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lzx/seckill/vo/OrderDetailVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lzx/seckill/controller/MQController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lzx/seckill/rabbitmq/MQConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lzx/seckill/rabbitmq/MQReceiver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lzx/seckill/rabbitmq/MQSender.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lzx/seckill/rabbitmq/SeckillMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lzx/seckill/redis/SeckillKeyPrefix.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lzx/seckill/controller/GoodsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lzx/seckill/controller/GoodsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/lzx/seckill/controller/SeckillController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lzx/seckill/controller/SeckillController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/lzx/seckill/dao/GoodsDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lzx/seckill/dao/GoodsDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lzx/seckill/dao/OrderDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lzx/seckill/dao/OrderDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lzx/seckill/result/CodeMsg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lzx/seckill/result/CodeMsg.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lzx/seckill/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lzx/seckill/service/OrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lzx/seckill/redis/GoodsKeyPrefix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lzx/seckill/redis/GoodsKeyPrefix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lzx/seckill/service/GoodsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lzx/seckill/service/GoodsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lzx/seckill/service/SeckillService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lzx/seckill/service/SeckillService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/goods_detail.htm" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/goods_detail.htm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/log4j.properties" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -41,8 +43,8 @@
     <session id="-1344449056">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="12" />
-          <entry key="project.open.time.1" value="2" />
+          <entry key="project.closed" value="13" />
+          <entry key="project.open.time.1" value="3" />
           <entry key="project.open.time.18" value="1" />
           <entry key="project.open.time.23" value="2" />
           <entry key="project.open.time.28" value="3" />
@@ -51,35 +53,35 @@
           <entry key="project.open.time.40" value="1" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="14" />
+          <entry key="project.opened" value="15" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="IContext" value="2" />
           <entry key="KeyPrefix" value="3" />
-          <entry key="class" value="47" />
-          <entry key="htm" value="5" />
+          <entry key="class" value="56" />
+          <entry key="htm" value="6" />
           <entry key="html" value="14" />
-          <entry key="java" value="184" />
+          <entry key="java" value="210" />
           <entry key="js" value="5" />
-          <entry key="pom" value="4" />
-          <entry key="properties" value="11" />
+          <entry key="pom" value="5" />
+          <entry key="properties" value="12" />
           <entry key="seckill_fail" value="1" />
           <entry key="ts" value="2" />
-          <entry key="xml" value="10" />
+          <entry key="xml" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CLASS" value="47" />
-          <entry key="HTML" value="20" />
-          <entry key="JAVA" value="184" />
+          <entry key="CLASS" value="56" />
+          <entry key="HTML" value="21" />
+          <entry key="JAVA" value="210" />
           <entry key="JavaScript" value="5" />
-          <entry key="Properties" value="11" />
+          <entry key="Properties" value="12" />
           <entry key="TypeScript" value="2" />
           <entry key="UML" value="5" />
-          <entry key="XML" value="14" />
+          <entry key="XML" value="16" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -87,19 +89,19 @@
           <entry key="dummy" value="13" />
           <entry key="htm" value="30" />
           <entry key="html" value="588" />
-          <entry key="java" value="18553" />
-          <entry key="properties" value="1607" />
-          <entry key="txt" value="113" />
-          <entry key="xml" value="645" />
+          <entry key="java" value="22194" />
+          <entry key="properties" value="1629" />
+          <entry key="txt" value="125" />
+          <entry key="xml" value="680" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="618" />
-          <entry key="JAVA" value="18553" />
-          <entry key="PLAIN_TEXT" value="126" />
-          <entry key="Properties" value="1607" />
-          <entry key="XML" value="645" />
+          <entry key="JAVA" value="22194" />
+          <entry key="PLAIN_TEXT" value="138" />
+          <entry key="Properties" value="1629" />
+          <entry key="XML" value="680" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages">
@@ -112,20 +114,46 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/lzx/seckill/controller/SeckillController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="662">
-              <caret line="59" column="56" lean-forward="true" selection-start-line="59" selection-start-column="56" selection-end-line="59" selection-end-column="56" />
+            <state relative-caret-position="566">
+              <caret line="162" column="38" selection-start-line="162" selection-start-column="38" selection-end-line="162" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/lzx/seckill/service/SeckillService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="764">
+              <caret line="54" column="28" selection-start-line="54" selection-start-column="28" selection-end-line="54" selection-end-column="28" />
+              <folding>
+                <element signature="e#985#986#0" expanded="true" />
+                <element signature="e#1012#1013#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/lzx/seckill/service/SeckillService.java">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/static/goods_detail.htm">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="392">
-              <caret line="23" column="28" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
+            <state relative-caret-position="654">
+              <caret line="153" column="80" selection-start-line="153" selection-start-column="80" selection-end-line="153" selection-end-column="80" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/lzx/seckill/redis/SeckillKeyPrefix.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="9" column="85" selection-start-line="9" selection-start-column="85" selection-end-line="9" selection-end-column="85" />
+              <folding>
+                <element signature="e#130#131#0" expanded="true" />
+                <element signature="e#159#160#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -133,8 +161,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/lzx/seckill/service/GoodsService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="458">
-              <caret line="27" column="25" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
+            <state relative-caret-position="434">
+              <caret line="27" column="33" selection-start-line="27" selection-start-column="33" selection-end-line="27" selection-end-column="33" />
               <folding>
                 <element signature="e#409#410#0" expanded="true" />
                 <element signature="e#454#455#0" expanded="true" />
@@ -148,39 +176,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/lzx/seckill/dao/GoodsDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+            <state relative-caret-position="418">
+              <caret line="26" column="7" selection-start-line="26" selection-start-column="7" selection-end-line="26" selection-end-column="7" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/lzx/seckill/redis/OrderKeyPrefix.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/lzx/seckill/rabbitmq/MQSender.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
-              <folding>
-                <element signature="e#126#127#0" expanded="true" />
-                <element signature="e#155#156#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/lzx/seckill/result/CodeMsg.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="430">
-              <caret line="22" column="41" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="41" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/lzx/seckill/controller/OrderController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="332">
-              <caret line="30" selection-start-line="30" selection-end-line="30" />
+            <state relative-caret-position="522">
+              <caret line="59" column="65" selection-start-line="59" selection-start-column="65" selection-end-line="59" selection-end-column="65" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -189,36 +195,48 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/static/order_detail.htm">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/lzx/seckill/rabbitmq/MQReceiver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2110" />
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/lzx/seckill/service/OrderService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="896">
-              <caret line="58" column="5" lean-forward="true" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
+            <state relative-caret-position="486">
+              <caret line="85" column="27" selection-start-line="85" selection-start-column="27" selection-end-line="85" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1649#1650#0" expanded="true" />
-                <element signature="e#1702#1703#0" expanded="true" />
+                <element signature="e#1273#1274#0" expanded="true" />
+                <element signature="e#1351#1352#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/lzx/seckill/vo/OrderDetailVo.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/lzx/seckill/rabbitmq/MQConfig.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="12" column="19" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="19" />
+            <state relative-caret-position="-350">
+              <caret line="66" column="7" lean-forward="true" selection-start-line="66" selection-start-column="7" selection-end-line="66" selection-end-column="7" />
               <folding>
-                <element signature="e#247#248#0" expanded="true" />
-                <element signature="e#275#276#0" expanded="true" />
-                <element signature="e#387#388#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#1679#1680#0" expanded="true" />
+                <element signature="e#1737#1738#0" expanded="true" />
+                <element signature="e#1786#1787#0" expanded="true" />
+                <element signature="e#1864#1865#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/lzx/seckill/rabbitmq/SeckillMessage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="220">
+              <caret line="10" column="34" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
+              <folding>
+                <element signature="e#232#233#0" expanded="true" />
+                <element signature="e#277#278#0" expanded="true" />
+                <element signature="e#309#310#0" expanded="true" />
+                <element signature="e#341#342#0" expanded="true" />
+                <element signature="e#371#372#0" expanded="true" />
                 <element signature="e#415#416#0" expanded="true" />
+                <element signature="e#453#454#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -242,6 +260,7 @@
       <find>toString</find>
       <find>countDown</find>
       <find>19800004999</find>
+      <find>Configuration</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -255,12 +274,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/lzx/seckill/redis/RedisConfig.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lzx/seckill/redis/RedisPoolFactory.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lzx/seckill/redis/KeyPrefix.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lzx/seckill/redis/BaseKeyPrefix.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lzx/seckill/redis/UserKeyPrefix.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/log4j.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/lzx/seckill/result/Result.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lzx/seckill/service/LoginService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lzx/seckill/util/ValidatorUtil.java" />
@@ -280,32 +293,38 @@
         <option value="$PROJECT_DIR$/src/main/java/com/lzx/seckill/vo/GoodsVo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lzx/seckill/domain/SeckillUser.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/goods_detail.html" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lzx/seckill/service/SeckillService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lzx/seckill/service/GoodsService.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/seckill_fail.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/lzx/seckill/domain/SeckillOrder.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/lzx/seckill/controller/LoginController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lzx/seckill/util/DBUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lzx/seckill/util/UserUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lzx/seckill/redis/RedisService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lzx/seckill/config/UserArgumentResolver.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lzx/seckill/redis/GoodsKeyPrefix.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lzx/seckill/redis/SeckillUserKeyPrefix.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lzx/seckill/dao/SeckillUserDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lzx/seckill/service/SeckillUserService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lzx/seckill/vo/GoodDetailVo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lzx/seckill/controller/GoodsController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/static/goods_detail.htm" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lzx/seckill/controller/SeckillController.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/lzx/seckill/vo/OrderDetailVo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lzx/seckill/result/CodeMsg.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lzx/seckill/dao/OrderDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lzx/seckill/dao/GoodsDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lzx/seckill/redis/OrderKeyPrefix.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lzx/seckill/controller/OrderController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lzx/seckill/service/OrderService.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lzx/seckill/controller/MQController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lzx/seckill/redis/GoodsKeyPrefix.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lzx/seckill/rabbitmq/SeckillMessage.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lzx/seckill/rabbitmq/MQConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lzx/seckill/rabbitmq/MQSender.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lzx/seckill/rabbitmq/MQReceiver.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lzx/seckill/service/GoodsService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lzx/seckill/dao/GoodsDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lzx/seckill/redis/SeckillKeyPrefix.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lzx/seckill/controller/SeckillController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lzx/seckill/service/SeckillService.java" />
       </list>
     </option>
   </component>
@@ -394,6 +413,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -479,6 +499,15 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="seckill" type="462c0819:PsiDirectoryNode" />
+              <item name="rabbitmq" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="seckill" type="b2602c69:ProjectViewProjectNode" />
+              <item name="seckill" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="seckill" type="462c0819:PsiDirectoryNode" />
               <item name="redis" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -553,9 +582,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -567,7 +595,7 @@
     <property name="RequestMappingsPanelWidth2" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1564502861400" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1564596533206" />
     <property name="last_opened_file_path" value="E:/SeckillProject/seckill/seckill" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -677,7 +705,8 @@
       <workItem from="1564193219000" duration="12347000" />
       <workItem from="1564323184132" duration="599000" />
       <workItem from="1564366332454" duration="19935000" />
-      <workItem from="1564450107992" duration="22332000" />
+      <workItem from="1564450107992" duration="23215000" />
+      <workItem from="1564538148417" duration="16142000" />
     </task>
     <task id="LOCAL-00001" summary="集成redis">
       <created>1563810192073</created>
@@ -728,17 +757,24 @@
       <option name="project" value="LOCAL" />
       <updated>1564478466622</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="完成页面静态化">
+      <created>1564502947424</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1564502947424</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="143458000" />
+    <option name="totallyTimeSpent" value="160483000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23592493" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.23592493" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -748,7 +784,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.5410765" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.53966004" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -772,7 +808,7 @@
       <window_info anchor="right" id="Theme Preview" order="9" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23592493" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23592493" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -782,7 +818,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.37393767" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.53966004" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -861,140 +897,18 @@
     <MESSAGE value="实现秒杀功能" />
     <MESSAGE value="进行压测，并作相关改动" />
     <MESSAGE value="完成页面缓存，url缓存，对象缓存优化" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成页面缓存，url缓存，对象缓存优化" />
+    <MESSAGE value="完成页面静态化" />
+    <option name="LAST_COMMIT_MESSAGE" value="完成页面静态化" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-maven-plugin/2.1.5.RELEASE/spring-boot-maven-plugin-2.1.5.RELEASE.pom">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2310">
-          <caret line="105" column="33" lean-forward="true" selection-start-line="105" selection-start-column="33" selection-end-line="105" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lzx/seckill/config/WebConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/mysql/mysql-connector-java/5.1.46/mysql-connector-java-5.1.46-sources.jar!/com/mysql/jdbc/Connection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="38" column="17" selection-start-line="38" selection-start-column="17" selection-end-line="38" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/sql/Connection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="23" column="3" lean-forward="true" selection-start-line="23" selection-start-column="3" selection-end-line="23" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/io/File.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="1005" column="19" selection-start-line="1005" selection-start-column="19" selection-end-line="1005" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lzx/seckill/util/DBUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="33" column="61" selection-start-line="33" selection-start-column="61" selection-end-line="33" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lzx/seckill/MainApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/alibaba/druid/1.0.5/druid-1.0.5.jar!/com/alibaba/druid/pool/DruidDataSource.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="77" column="13" selection-start-line="77" selection-start-column="13" selection-end-line="77" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lzx/seckill/domain/OrderInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1172">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lzx/seckill/redis/RedisService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="29" column="50" selection-start-line="29" selection-start-column="50" selection-end-line="29" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lzx/seckill/domain/SeckillUser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-732">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lzx/seckill/util/MD5Util.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="43" column="25" selection-start-line="43" selection-start-column="25" selection-end-line="43" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lzx/seckill/util/UserUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1524">
-          <caret line="29" column="10" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lzx/seckill/redis/UserKeyPrefix.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="4" column="39" lean-forward="true" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
-          <folding>
-            <element signature="e#122#123#0" expanded="true" />
-            <element signature="e#151#152#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/thymeleaf/thymeleaf-spring5/3.0.11.RELEASE/thymeleaf-spring5-3.0.11.RELEASE.jar!/org/thymeleaf/spring5/SpringTemplateEngine.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/thymeleaf/thymeleaf-spring5/3.0.11.RELEASE/thymeleaf-spring5-3.0.11.RELEASE.jar!/org/thymeleaf/spring5/ISpringTemplateEngine.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/thymeleaf/thymeleaf-spring5/3.0.11.RELEASE/thymeleaf-spring5-3.0.11.RELEASE.jar!/org/thymeleaf/spring5/view/ThymeleafViewResolver.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="218">
           <caret line="60" column="24" lean-forward="true" selection-start-line="60" selection-start-column="24" selection-end-line="60" selection-end-column="24" />
-          <folding>
-            <element signature="e#2672#2673#0" expanded="true" />
-            <element signature="e#2714#2715#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1022,7 +936,7 @@
           </nodes>
           <notes />
           <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="48.5" y="15.5" />
+          <settings layout="Hierarchic Group" zoom="1.0" x="49.0" y="16.0" />
           <SelectedNodes />
           <Categories />
           <SCOPE>All</SCOPE>
@@ -1054,7 +968,7 @@
           </nodes>
           <notes />
           <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="51.0" y="15.5" />
+          <settings layout="Hierarchic Group" zoom="1.0" x="51.0" y="16.0" />
           <SelectedNodes />
           <Categories />
           <SCOPE>All</SCOPE>
@@ -1062,24 +976,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lzx/seckill/redis/KeyPrefix.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="5" column="19" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/thymeleaf/thymeleaf/3.0.11.RELEASE/thymeleaf-3.0.11.RELEASE.jar!/org/thymeleaf/context/WebContext.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="201">
           <caret line="19" column="11" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lzx/seckill/redis/GoodsKeyPrefix.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="8" column="33" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
         </state>
       </provider>
     </entry>
@@ -1101,19 +1001,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lzx/seckill/redis/SeckillUserKeyPrefix.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
-          <folding>
-            <element signature="e#216#217#0" expanded="true" />
-            <element signature="e#260#261#0" expanded="true" />
-            <element signature="e#313#314#0" expanded="true" />
-            <element signature="e#336#337#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/lzx/seckill/dao/SeckillUserDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -1131,33 +1018,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lzx/seckill/controller/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="29" column="5" lean-forward="true" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#902#903#0" expanded="true" />
-            <element signature="e#932#933#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/lzx/seckill/vo/GoodDetailVo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="372">
           <caret line="32" column="16" selection-start-line="32" selection-start-column="16" selection-end-line="32" selection-end-column="16" />
-          <folding>
-            <element signature="e#688#689#0" expanded="true" />
-            <element signature="e#722#723#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/goods_detail.htm">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="153" column="80" lean-forward="true" selection-start-line="153" selection-start-column="80" selection-end-line="153" selection-end-column="80" />
         </state>
       </provider>
     </entry>
@@ -1165,17 +1029,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="218">
           <caret line="82" column="20" selection-start-line="82" selection-start-column="20" selection-end-line="82" selection-end-column="20" />
-          <folding>
-            <element signature="e#2642#2643#0" expanded="true" />
-            <element signature="e#2686#2687#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="47" column="35" lean-forward="true" selection-start-line="47" selection-start-column="35" selection-end-line="47" selection-end-column="35" />
         </state>
       </provider>
     </entry>
@@ -1193,26 +1046,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lzx/seckill/vo/OrderDetailVo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="12" column="19" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="19" />
-          <folding>
-            <element signature="e#247#248#0" expanded="true" />
-            <element signature="e#275#276#0" expanded="true" />
-            <element signature="e#387#388#0" expanded="true" />
-            <element signature="e#415#416#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lzx/seckill/result/CodeMsg.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="22" column="41" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/lzx/seckill/domain/SeckillOrder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="66">
@@ -1227,22 +1060,250 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/order_detail.htm">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lzx/seckill/result/CodeMsg.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2110" />
+        <state relative-caret-position="484">
+          <caret line="22" column="41" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="41" />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lzx/seckill/service/SeckillService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lzx/seckill/controller/OrderController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="23" column="28" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
+        <state relative-caret-position="374">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/order_detail.htm">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lzx/seckill/vo/OrderDetailVo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="12" column="19" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-amqp/2.1.5.RELEASE/spring-boot-starter-amqp-2.1.5.RELEASE.pom">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="370">
+          <caret line="94" column="38" selection-start-line="94" selection-start-column="38" selection-end-line="94" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lzx/seckill/service/OrderService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="430">
+          <caret line="38" column="44" selection-start-line="38" selection-start-column="44" selection-end-line="38" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/amqp/spring-rabbit/2.1.6.RELEASE/spring-rabbit-2.1.6.RELEASE.jar!/org/springframework/amqp/rabbit/annotation/RabbitListener.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="25" column="19" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lzx/seckill/redis/OrderKeyPrefix.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+          <folding>
+            <element signature="e#126#127#0" expanded="true" />
+            <element signature="e#155#156#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lzx/seckill/redis/RedisPoolFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="13" column="24" lean-forward="true" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lzx/seckill/config/WebConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="12" column="14" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lzx/seckill/controller/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="35" selection-start-line="35" selection-end-line="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#902#903#0" expanded="true" />
+            <element signature="e#932#933#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lzx/seckill/redis/RedisConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="30" column="5" lean-forward="true" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="57" column="25" lean-forward="true" selection-start-line="57" selection-start-column="25" selection-end-line="57" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/amqp/spring-rabbit/2.1.6.RELEASE/spring-rabbit-2.1.6.RELEASE.jar!/org/springframework/amqp/rabbit/core/RabbitTemplate.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="535" column="16" selection-start-line="535" selection-start-column="16" selection-end-line="535" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/amqp/spring-amqp/2.1.6.RELEASE/spring-amqp-2.1.6.RELEASE.jar!/org/springframework/amqp/core/AmqpTemplate.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="20" column="9" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/amqp/spring-amqp/2.1.6.RELEASE/spring-amqp-2.1.6.RELEASE.jar!/org/springframework/amqp/core/BindingBuilder.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="137" column="92" selection-start-line="137" selection-start-column="92" selection-end-line="137" selection-end-column="92" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lzx/seckill/controller/MQController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="43" column="5" lean-forward="true" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lzx/seckill/redis/KeyPrefix.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lzx/seckill/redis/SeckillUserKeyPrefix.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="16" column="57" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="57" />
+          <folding>
+            <element signature="e#216#217#0" expanded="true" />
+            <element signature="e#260#261#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lzx/seckill/redis/GoodsKeyPrefix.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+          <folding>
+            <element signature="e#145#146#0" expanded="true" />
+            <element signature="e#189#190#0" expanded="true" />
+            <element signature="e#256#257#0" expanded="true" />
+            <element signature="e#300#301#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/redis/clients/jedis/2.9.3/jedis-2.9.3.jar!/redis/clients/jedis/Jedis.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="241" column="16" selection-start-line="241" selection-start-column="16" selection-end-line="241" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lzx/seckill/redis/RedisService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="113" column="19" lean-forward="true" selection-start-line="113" selection-start-column="19" selection-end-line="113" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lzx/seckill/rabbitmq/SeckillMessage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" column="34" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
+          <folding>
+            <element signature="e#232#233#0" expanded="true" />
+            <element signature="e#277#278#0" expanded="true" />
+            <element signature="e#309#310#0" expanded="true" />
+            <element signature="e#341#342#0" expanded="true" />
+            <element signature="e#371#372#0" expanded="true" />
+            <element signature="e#415#416#0" expanded="true" />
+            <element signature="e#453#454#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lzx/seckill/rabbitmq/MQConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-350">
+          <caret line="66" column="7" lean-forward="true" selection-start-line="66" selection-start-column="7" selection-end-line="66" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1679#1680#0" expanded="true" />
+            <element signature="e#1737#1738#0" expanded="true" />
+            <element signature="e#1786#1787#0" expanded="true" />
+            <element signature="e#1864#1865#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lzx/seckill/rabbitmq/MQSender.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="522">
+          <caret line="59" column="65" selection-start-line="59" selection-start-column="65" selection-end-line="59" selection-end-column="65" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lzx/seckill/rabbitmq/MQReceiver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="85" column="27" selection-start-line="85" selection-start-column="27" selection-end-line="85" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1273#1274#0" expanded="true" />
+            <element signature="e#1351#1352#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lzx/seckill/dao/GoodsDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="26" column="7" selection-start-line="26" selection-start-column="7" selection-end-line="26" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/lzx/seckill/service/GoodsService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="458">
-          <caret line="27" column="25" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
+        <state relative-caret-position="434">
+          <caret line="27" column="33" selection-start-line="27" selection-start-column="33" selection-end-line="27" selection-end-column="33" />
           <folding>
             <element signature="e#409#410#0" expanded="true" />
             <element signature="e#454#455#0" expanded="true" />
@@ -1252,50 +1313,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lzx/seckill/dao/GoodsDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lzx/seckill/redis/OrderKeyPrefix.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lzx/seckill/redis/SeckillKeyPrefix.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
-          <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+          <caret line="9" column="85" selection-start-line="9" selection-start-column="85" selection-end-line="9" selection-end-column="85" />
           <folding>
-            <element signature="e#126#127#0" expanded="true" />
-            <element signature="e#155#156#0" expanded="true" />
+            <element signature="e#130#131#0" expanded="true" />
+            <element signature="e#159#160#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lzx/seckill/controller/OrderController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/goods_detail.htm">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="30" selection-start-line="30" selection-end-line="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lzx/seckill/service/OrderService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="896">
-          <caret line="58" column="5" lean-forward="true" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1649#1650#0" expanded="true" />
-            <element signature="e#1702#1703#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="654">
+          <caret line="153" column="80" selection-start-line="153" selection-start-column="80" selection-end-line="153" selection-end-column="80" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/lzx/seckill/controller/SeckillController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="662">
-          <caret line="59" column="56" lean-forward="true" selection-start-line="59" selection-start-column="56" selection-end-line="59" selection-end-column="56" />
+        <state relative-caret-position="566">
+          <caret line="162" column="38" selection-start-line="162" selection-start-column="38" selection-end-line="162" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lzx/seckill/service/SeckillService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="764">
+          <caret line="54" column="28" selection-start-line="54" selection-start-column="28" selection-end-line="54" selection-end-column="28" />
+          <folding>
+            <element signature="e#985#986#0" expanded="true" />
+            <element signature="e#1012#1013#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
