@@ -65,6 +65,9 @@ public class MQReceiver {
         log.info("receive headerqueue message:" + new String(message));
     }
 
+
+
+
     @RabbitListener(queues = MQConfig.SECKILL_QUEUE)
     public void receiveSeckillMsg(String message) {
         log.info("receive seckill_queue message:" + message);

@@ -230,7 +230,7 @@
             }
             $("#miaoshaTip").html("秒杀进行中");
             // 在倒计时结束时获取验证码（使用ajax异步向服务器请求验证码图片）
-            $("#verifyCodeImg").attr("src", "/miaosha/verifyCode?goodsId=" + $("#goodsId").val());
+            $("#verifyCodeImg").attr("src", "/seckill/verifyCode?goodsId=" + $("#goodsId").val());
             $("#verifyCodeImg").show();// 从服务器加载完验证码图片后，显示出来
             $("#verifyCode").show();
         } else {//秒杀已经结束
@@ -243,7 +243,7 @@
 
     /*点击验证码图片时，从服务器异步获取另一张验证码码图片*/
     function refreshVerifyCode() {
-        $("#verifyCodeImg").attr("src", "/miaosha/verifyCode?goodsId=" + $("#goodsId").val() + "&timestamp=" + new Date().getTime());
+        $("#verifyCodeImg").attr("src", "/seckill/verifyCode?goodsId=" + $("#goodsId").val() + "&timestamp=" + new Date().getTime());
     }
 
 </script>

@@ -1,6 +1,7 @@
 package com.lzx.seckill.controller;
 
 
+import com.lzx.seckill.access.AccessLimit;
 import com.lzx.seckill.domain.OrderInfo;
 import com.lzx.seckill.domain.SeckillOrder;
 import com.lzx.seckill.domain.SeckillUser;
@@ -20,10 +21,12 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
+import javax.imageio.ImageIO;
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
+import java.awt.image.BufferedImage;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -109,13 +112,20 @@ public class SeckillController implements InitializingBean {
 
     }
 
-    @RequestMapping("/do_seckill_static")
+    @RequestMapping("/{path}/do_seckill_static")
     @ResponseBody
     public Result doSeckillStatic(Model model, SeckillUser user,
-                                  @RequestParam("goodsId") Long goodsId) {
+                                  @RequestParam("goodsId") Long goodsId,
+                                  @PathVariable("path") String path) {
         if (user == null) {
             return Result.error(CodeMsg.SESSION_ERROR);
         }
+
+        //验证path是否正确
+        boolean check = seckillService.checkPath(user, goodsId, path);
+        if (!check)
+            return Result.error(CodeMsg.REQUEST_ILLEGAL);// 请求非法
+
         //先用map进行库存判断，减少redis访问
         Boolean over = localOverMap.get(goodsId);
         if (over) {
@@ -134,6 +144,7 @@ public class SeckillController implements InitializingBean {
         SeckillMessage seckillMessage = new SeckillMessage();
         seckillMessage.setUser(user);
         seckillMessage.setGoodsId(goodsId);
+
         mqSender.sendSeckillMsg(seckillMessage);
         return Result.success(0);//0表示排队中
 
@@ -162,6 +173,45 @@ public class SeckillController implements InitializingBean {
         }
         long result = seckillService.getSeckillResult(user.getId(), goodsId);
         return Result.success(result);
+    }
+
+
+    @AccessLimit(seconds = 5, maxAccessCount = 5, needLogin = true)
+    @RequestMapping(value = "/path", method = RequestMethod.GET)
+    @ResponseBody
+    public Result<String> getSeckillPath(SeckillUser user,
+                                         @RequestParam("goodsId") long goodsId
+    ) {
+        if (user == null) {
+            return Result.error(CodeMsg.SESSION_ERROR);
+        }
+        // 获取秒杀路径
+        String path = seckillService.createSeckillPath(user, goodsId);
+        // 向客户端回传随机生成的秒杀地址
+        return Result.success(path);
+    }
+
+
+    @RequestMapping(value = "/verifyCode", method = RequestMethod.GET)
+    @ResponseBody
+    public Result<String> getMiaoshaVerifyCode(HttpServletResponse response, SeckillUser user,
+                                               @RequestParam("goodsId") long goodsId) {
+        if (user == null)
+            return Result.error(CodeMsg.SESSION_ERROR);
+
+        // 创建验证码
+        try {
+            BufferedImage image = seckillService.createVerifyCode(user, goodsId);
+            ServletOutputStream out = response.getOutputStream();
+            // 将图片写入到resp对象中
+            ImageIO.write(image, "JPEG", out);
+            out.close();
+            out.flush();
+            return null;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Result.error(CodeMsg.SECKILL_FAIL);
+        }
     }
 
 }

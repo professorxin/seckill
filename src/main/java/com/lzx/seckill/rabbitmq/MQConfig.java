@@ -107,4 +107,10 @@ public class MQConfig {
         return BindingBuilder.bind(headerQueue()).to(headersExchange()).whereAll(map).match();
     }
 
+
+    @Bean
+    public Queue seckillQueue() {
+        return new Queue(SECKILL_QUEUE, true);
+    }
+
 }

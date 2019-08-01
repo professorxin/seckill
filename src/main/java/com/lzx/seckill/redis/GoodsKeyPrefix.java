@@ -14,6 +14,6 @@ public class GoodsKeyPrefix extends BaseKeyPrefix {
 
     public static GoodsKeyPrefix goodsDetailKeyPrefix = new GoodsKeyPrefix(60, "goodsDetail");
 
-    public static GoodsKeyPrefix seckillGoodsStock = new GoodsKeyPrefix(60, "goodsDetail");
+    public static GoodsKeyPrefix seckillGoodsStock = new GoodsKeyPrefix("seckillGoodsStock");
 
 }

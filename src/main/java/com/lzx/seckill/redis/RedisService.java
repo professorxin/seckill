@@ -97,7 +97,7 @@ public class RedisService {
         Jedis jedis = null;
         try {
             jedis = jedisPool.getResource();
-            String realKey = keyPrefix + key;
+            String realKey = keyPrefix.getPrefix() + key;
             return jedis.incr(realKey);
         } finally {
             returnToPool(jedis);
@@ -115,7 +115,7 @@ public class RedisService {
         Jedis jedis = null;
         try {
             jedis = jedisPool.getResource();
-            String realKey = keyPrefix + key;
+            String realKey = keyPrefix.getPrefix() + key;
             return jedis.decr(realKey);
         } finally {
             returnToPool(jedis);
@@ -133,7 +133,7 @@ public class RedisService {
         Jedis jedis = null;
         try {
             jedis = jedisPool.getResource();
-            String realKey = keyPrefix + key;
+            String realKey = keyPrefix.getPrefix() + key;
             Long del = jedis.del(realKey);
             return del > 0;
         } finally {

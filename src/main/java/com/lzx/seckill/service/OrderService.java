@@ -44,10 +44,10 @@ public class OrderService {
         orderInfo.setUserId(user.getId());
 
         //订单信息插入order_info表中
-        long orderId = orderDao.insert(orderInfo);
+        orderDao.insert(orderInfo);
 
         SeckillOrder seckillOrder = new SeckillOrder();
-        seckillOrder.setOrderId(orderId);
+        seckillOrder.setOrderId(orderInfo.getId());
         seckillOrder.setGoodsId(goods.getId());
         seckillOrder.setUserId(user.getId());
 

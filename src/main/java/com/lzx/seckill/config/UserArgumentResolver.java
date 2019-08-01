@@ -1,5 +1,6 @@
 package com.lzx.seckill.config;
 
+import com.lzx.seckill.access.UserContext;
 import com.lzx.seckill.domain.SeckillUser;
 import com.lzx.seckill.service.SeckillUserService;
 
@@ -53,6 +54,7 @@ public class UserArgumentResolver implements HandlerMethodArgumentResolver {
                                   ModelAndViewContainer modelAndViewContainer,
                                   NativeWebRequest nativeWebRequest,
                                   WebDataBinderFactory webDataBinderFactory) throws Exception {
+/*
         //获取请求和响应对象
         HttpServletRequest request = nativeWebRequest.getNativeRequest(HttpServletRequest.class);
         HttpServletResponse response = nativeWebRequest.getNativeResponse(HttpServletResponse.class);
@@ -65,7 +67,8 @@ public class UserArgumentResolver implements HandlerMethodArgumentResolver {
         }
         String token = StringUtils.isEmpty(paramToken) ? cookieToken : paramToken;
         SeckillUser seckillUser = seckillUserService.getByToken(response, token);
-        return seckillUser;
+        return seckillUser;*/
+        return UserContext.getUser();
     }
 
     /**
